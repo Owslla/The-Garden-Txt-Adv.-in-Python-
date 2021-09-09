@@ -8,7 +8,7 @@ For me, the easiest way to learn is by doing hands-on work. When I was a child, 
 
 This particular work was originally inspired by going through the online course, “Learning Python the Hard Way” (http://learnpythonthehardway.org/ ). In particular, Exercise 36. You can find more information in the comment section at the top of each file.
 
-The Garden-Map.png is not needed to play the game, it is just part of my planning process.  It can act as a guide of sorts, if you get stuck. ;)
+The Garden-Map.png is not needed to play the game, it is just part of my planning process.  It can act as a guide of sorts, if you get stuck.
 
 # To Play
 
