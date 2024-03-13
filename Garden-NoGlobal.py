@@ -289,6 +289,7 @@ def red():
 
 
 # Why is the start placed at the end of the program?
+# Need to look into how the following fits in to all this => if __name__ == "__main__":
 
 def enterance():
     os.system ('clear')
