@@ -13,7 +13,7 @@ from sys import exit
 import os
 
 # Areas created based on map and potential plot lines
-# Map: https://drive.google.com/open?id=0B_QocyXoG7zlNk1jYnhSOVcyTXM
+# Map: https://github.com/Owslla/The-Garden-Txt-Adv.-in-Python-/blob/main/Garden-Map.png
 # Find other possible story ideas to convert:
 # http://www.write4fun.net/view-entry/205506
 # http://www.collegehumor.com/tag/choose-your-own-adventure
