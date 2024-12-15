@@ -1,39 +1,32 @@
-# Exercise 36: Designing and Debugging -Learn Python the Hard way
+# Exercise 36: Designing and Debugging - Learn Python the Hard Way
 # http://learnpythonthehardway.org/book/ex36.html
-# This script is written for Python3. The script will work in other
-# version, but the `from sys import exit' and use of exit(0) may give
-# an error.
+# This script is designed for Python 3, but it should work with other versions. However, the 'from sys import exit' and 'exit(0)' statements may cause issues in other versions.
 
-# Calling exit allows the program to terminate itself and send the user
-# back to the command prompt.
+# The exit function allows the program to terminate and return the user to the command prompt.
 from sys import exit
 
-# Importing 'os' for the 'os.system ('clear')' which lets python clear
-# the screen
+# Importing the 'os' module to use the 'os.system('clear')' function, which clears the screen.
 import os
 
-# Areas created based on map and potential plot lines
+# The game areas are based on a map and potential plot lines.
 # Map: https://drive.google.com/open?id=0B_QocyXoG7zlNk1jYnhSOVcyTXM
-# Find other possible story ideas to convert:
+# For more story ideas, visit:
 # http://www.write4fun.net/view-entry/205506
 # http://www.collegehumor.com/tag/choose-your-own-adventure
 
-# *****Known Issues ****
-# After collecting the crystal the choice text is changed but the option is still available
-# causing the player to be able to add the same crystals.  It does not affect the game other than putting extra crystals in the backpack.
+# *****Known Issues*****
+# Currently, after collecting a crystal, the choice text changes, but the option remains available, allowing the player to collect the same crystal multiple times. This does not affect the game's functionality, but it can result in duplicate crystals in the backpack.
 
 # Backpack Inventory
-# Need to set backpack to only collect each crystal once.  
-# This can also be done by removing the crystal from its location when placed 
-# in the backpack.
-# Remove crystal from garden when collected. Quick fix is to hide choice if crystal is in bag
-# Add the below code to the choices section of each garden area to change the choice from 'search' to 'found'
+# To fix this issue, we need to ensure that each crystal can only be collected once. This can be achieved by removing the crystal from its location when it is added to the backpack.
+# Alternatively, we can hide the choice to collect the crystal if it is already in the backpack.
+# To implement this, add the following code to the choices section of each garden area to change the choice from 'search' to 'found':
 #    try:
 #        backpack.index("<crystal name>")
 #    except ValueError:
 #        print("<choice that finds crystal>")
 #    else:
-#        print ("<text saying the crystal has been found")
+#        print("<text saying the crystal has been found>")
 #    choice = input("What will you do? > ")
 
 backpack = ['water']
@@ -42,9 +35,8 @@ backpackFilled = ['water','red crystal','clear crystal','yellow crystal','green 
 def addToBackpack(item):
     backpack.append(item)
 
-# Check for all the crystals before you can leave the garden.
-# I'd like to go back and set up a check that compares 'backpack' to
-# 'backpackFilled' and block access until all the crystals are found.
+# Check all crystals are collected before exiting the garden.
+# To do this, we can add a check that compares the player's current inventory ('backpack') to the required inventory ('backpackFilled') and restrict access until all crystals are found.
 
 
 def crystal_check():
@@ -61,7 +53,7 @@ def crystal_check():
 
 def clear():
     os.system ('clear')
-    print ("As you enter this part of the garden the first thing you notice is a large marble fountain in the center of the clearing with geysers of water shooting high into the sun lit sky.  Once you are able to drag your eyes from the fountain you see little else.  The ground is covered with crushed marble flakes and you notice two archways leading back into the garden.  One is to the west and the other heads to the east. You realize this must be the center of the garden.  The focal point of this odd, yet beautiful place.")
+    print ("As you enter this part of the garden the first thing you notice is a large marble fountain in the center of the clearing with geysers of water shooting high into the sunlit sky.  Once you are able to drag your eyes from the fountain you see little else.  The ground is covered in a thin layer of crushed marble flakes. There are two two archways leading back into the garden.  One is to the west and the other to the east. You realize this must be the center of the garden.  The focal point of this odd, yet beautiful place.")
     print ("Your backpack contains: ", backpack)
     print ("You can:")
     print ("1. Head through the archway to the east")
@@ -119,20 +111,20 @@ def yellow():
 # use these to send the player to other locations
 
     if choice == "1": # need to check for crystals
-        print ("\nYou turn toward the northern archway and head down the path. As you leave the garden gates close behind you.  I hope you found all five the crystals.  \n")
+        print ("\nYou turn toward the northern archway and head down the path. As you leave the garden gates close behind you.  I hope you found all five crystals.  \n")
         input("Click <enter> to check your backpack.")
         crystal_check()
         exit(0)
     elif choice == "2":
-        print ("\nYou turn toward the eastern archway and head down the path. As the path curves to the right you begin feel a breeze on your face as you move along the path. \n")
+        print ("\nYou turn toward the eastern archway and head down the path. As the path curves to the right you begin to feel a breeze on your face as you move along the path. \n")
         input("<enter>")
         blue()
     elif choice == "3":
-        print ("\nYou turn toward the western archway and head down the path. After a short the path and walls become completely covered by green vines. The path curves left and soon you are in another part of the garden. \n")
+        print ("\nYou turn toward the western archway and head down the path. After a short time the path and walls become completely covered by green vines. The path curves left and soon you are in another part of the garden. \n")
         input("<enter>")
         green()
     elif choice == "4": #crystal
-        print ("\nYou continue to shield your eyes and walk to the closest pillar.  You begin to see that the object is a sundial made of metal with a mirror finish.  The symbols on the metal don't look familiar to you, but you guess it's some time just after noon based on the position of the shadow.  Then you see it.  Right where the shadow is pointing is a small yellow crystal.  You pick up the crystal and place it in your backpack.\n")
+        print ("\nYou continue to shield your eyes and walk to the closest pillar.  You begin to see that the object is a sundial made of metal with a mirrored finish.  The symbols on the metal don't look familiar to you, but you guess it's some time just after noon based on the position of the shadow.  Then you see it.  Right where the shadow is pointing is a small yellow crystal.  You pick up the crystal and place it in your backpack.\n")
         backpack
         addToBackpack("yellow crystal")
         print ("You have the following crystals: ", backpack)
@@ -174,11 +166,11 @@ def blue():
         input("<enter>")
         clear()
     elif choice == "3":
-        print ("\nYou turn toward the southern archway and head down the path. As the path curves right you start see large red flowers blooming on the vines. You then come to another part of the garden.\n")
+        print ("\nYou turn toward the southern archway and head down the path. As the path curves right you start seeing large red flowers blooming on the vines. You then come to another part of the garden.\n")
         input("<enter>")
         red()
     elif choice == "4":
-        print ("\nJust below the water surface of the pools are countless oval shaped blue crystals.  You take one and add it to your backpack.\n")
+        print ("\nJust below the surface of the pools are countless oval shaped blue crystals.  You take one and add it to your backpack.\n")
         backpack
         addToBackpack("blue crystal")
         print ("You have the following crystals: ", backpack)
