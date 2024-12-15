@@ -1,4 +1,4 @@
-# Exercise 36: Designing and Debugging -Learn Python the Hardway
+# Exercise 36: Designing and Debugging -Learn Python the Hard way
 # http://learnpythonthehardway.org/book/ex36.html
 # This script is written for Python3. The script will work in other
 # version, but the `from sys import exit' and use of exit(0) may give
@@ -13,20 +13,20 @@ from sys import exit
 import os
 
 # Areas created based on map and potential plot lines
-# Map: https://github.com/Owslla/The-Garden-Txt-Adv.-in-Python-/blob/main/Garden-Map.png
+# Map: https://drive.google.com/open?id=0B_QocyXoG7zlNk1jYnhSOVcyTXM
 # Find other possible story ideas to convert:
-# http://www.write4fun.net/
+# http://www.write4fun.net/view-entry/205506
 # http://www.collegehumor.com/tag/choose-your-own-adventure
-# http://chooseyourstory.com/
 
 # *****Known Issues ****
 # After collecting the crystal the choice text is changed but the option is still available
 # causing the player to be able to add the same crystals.  It does not affect the game other than putting extra crystals in the backpack.
 
 # Backpack Inventory
-# Need to set backback to only collect each crystal once.  This can also be 
-# done by removing the crystal from its location when placed in the backpack.
-# Remove crystal from garden when collected. Quick fix is to hide choice if cryrtal is in bag
+# Need to set backpack to only collect each crystal once.  
+# This can also be done by removing the crystal from its location when placed 
+# in the backpack.
+# Remove crystal from garden when collected. Quick fix is to hide choice if crystal is in bag
 # Add the below code to the choices section of each garden area to change the choice from 'search' to 'found'
 #    try:
 #        backpack.index("<crystal name>")
@@ -36,8 +36,8 @@ import os
 #        print ("<text saying the crystal has been found")
 #    choice = input("What will you do? > ")
 
-backpack=['water']
-backbackFilled=['water','red crystal','clear crystal','yellow crystal','green crystal','blue crystal']
+backpack = ['water']
+backpackFilled = ['water','red crystal','clear crystal','yellow crystal','green crystal','blue crystal']
 
 def addToBackpack(item):
     backpack.append(item)
@@ -48,10 +48,13 @@ def addToBackpack(item):
 
 
 def crystal_check():
-    global backpack
-    global backpackFilled
+    backpack
+    backpackFilled  = ['water','red crystal','clear crystal','yellow crystal','green crystal','blue crystal']
     for crystal in backpack:
-        print ("You found %s" % crystal)
+        print ("You have a %s" % crystal)
+    print ("")
+    for item in backpackFilled:
+        print ("You should have a %s" % item)
     exit(0)
 
 # Main Script with Garden Areas and Navigation
@@ -84,7 +87,7 @@ def clear():
         green()
     elif choice == "3": #crystal
         print ("\nYou look closer at the fountain.  Something sparkling in the water catches your eye and you realize it is a perfectly transparent crystal.  You take the clear crystal and add it to your backpack.\n")
-        global backpack # lets the function know what backpack is
+        backpack # lets the function know what backpack is
         addToBackpack("clear crystal") # calls the 'addToBackpack' function and sends it 'clear'
         print ("You have the following crystals: ", backpack) # prints what is in the backpack inventory
         input("<enter>")
@@ -130,7 +133,7 @@ def yellow():
         green()
     elif choice == "4": #crystal
         print ("\nYou continue to shield your eyes and walk to the closest pillar.  You begin to see that the object is a sundial made of metal with a mirror finish.  The symbols on the metal don't look familiar to you, but you guess it's some time just after noon based on the position of the shadow.  Then you see it.  Right where the shadow is pointing is a small yellow crystal.  You pick up the crystal and place it in your backpack.\n")
-        global backpack
+        backpack
         addToBackpack("yellow crystal")
         print ("You have the following crystals: ", backpack)
         input("<enter>")
@@ -163,7 +166,7 @@ def blue():
 # use these to send the player to other locations
 
     if choice == "1":
-        print ("\nYou turn toward the northern archway and head down the path. As the path curves to the left you quickly notice how bright your surroundsings are becoming.\n")
+        print ("\nYou turn toward the northern archway and head down the path. As the path curves to the left you quickly notice how bright your surroundings are becoming.\n")
         input("<enter>")
         yellow()
     elif choice == "2":
@@ -176,7 +179,7 @@ def blue():
         red()
     elif choice == "4":
         print ("\nJust below the water surface of the pools are countless oval shaped blue crystals.  You take one and add it to your backpack.\n")
-        global backpack
+        backpack
         addToBackpack("blue crystal")
         print ("You have the following crystals: ", backpack)
         input("<enter>")
@@ -210,7 +213,7 @@ def green():
 # use these to send the player to other locations
 
     if choice == "1":
-        print ("\nYou turn toward the northern archway and head down the path. As the path curves to the right you quickly notice how bright your surroundsings are becoming. \n")
+        print ("\nYou turn toward the northern archway and head down the path. As the path curves to the right you quickly notice how bright your surroundings are becoming. \n")
         input("<enter>")
         yellow()
     elif choice == "2":
@@ -222,8 +225,8 @@ def green():
         input("<enter>")
         red()
     elif choice == "4": #crystal
-        print ("\nYou look closer at the vines.  In a particlualry tangled portion of the vines you find a small green crystal under a leaf.  You take the crystal and add it to your backpack.\n")
-        global backpack
+        print ("\nYou look closer at the vines.  In a particularly tangled portion of the vines you find a small green crystal under a leaf.  You take the crystal and add it to your backpack.\n")
+        backpack
         addToBackpack("green crystal")
         print ("You have the following crystals: ", backpack)
         input("<enter>")
@@ -268,7 +271,7 @@ def red():
         blue()
     elif choice == "3": #crystal
         print ("\nYou look closer at the red flowers.  The smell of the flowers reminds you of sweat candy treats on a beautiful summer day.  As you move from flower to flower you come across a small red crystal in one of them.  You take the crystal and add it to your backpack.\n")
-        global backpack
+        backpack
         addToBackpack("red crystal")
         print ("You have the following crystals: ", backpack)
         input("<enter>")
@@ -286,6 +289,7 @@ def red():
 
 
 # Why is the start placed at the end of the program?
+# All necessary functions and variables are defined before they’re used, allowing the program to execute correctly.
 
 def enterance():
     os.system ('clear')
