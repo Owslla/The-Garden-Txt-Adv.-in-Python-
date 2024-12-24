@@ -53,7 +53,7 @@ def crystal_check():
 
 def clear():
     os.system ('clear')
-    print ("As you enter this part of the garden the first thing you notice is a large marble fountain in the center of the clearing with geysers of water shooting high into the sunlit sky.  Once you are able to drag your eyes from the fountain you see little else.  The ground is covered in a thin layer of crushed marble flakes. There are two two archways leading back into the garden.  One is to the west and the other to the east. You realize this must be the center of the garden.  The focal point of this odd, yet beautiful place.")
+    print ("As you enter this part of the garden the first thing you notice is a large marble fountain in the center of the clearing with geysers of water shooting high into the sunlit sky.  Once you are able to drag your eyes from the fountain you see little else.  The ground is covered in a thin layer of crushed marble flakes. There are two archways leading back into the garden.  One is to the west and the other to the east. You realize this must be the center of the garden.  The focal point of this odd, yet beautiful place.")
     print ("Your backpack contains: ", backpack)
     print ("You can:")
     print ("1. Head through the archway to the east")
